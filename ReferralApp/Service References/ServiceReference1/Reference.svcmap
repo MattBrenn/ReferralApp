@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="07ab521c-28ff-4d01-ad1b-d90b5b8d0f81" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dev.fotostore.ie/fotostore.adminservice/admin.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Admin.disco" MetadataType="Disco" ID="dd9365fb-b57f-434e-afc0-baad8438dd01" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?disco" />
+    <MetadataFile FileName="Admin.xsd" MetadataType="Schema" ID="a10edfb4-0324-470d-8075-ccfdeff27900" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd4" />
+    <MetadataFile FileName="Admin1.xsd" MetadataType="Schema" ID="a5b2bd4f-b3a2-477a-86a6-a50ef0437932" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd1" />
+    <MetadataFile FileName="Admin2.xsd" MetadataType="Schema" ID="7d1bc9f0-a821-471f-9953-00a97c89c6ba" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd0" />
+    <MetadataFile FileName="Admin3.xsd" MetadataType="Schema" ID="ea663493-ee01-4176-bdad-5225a9d74a6f" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd3" />
+    <MetadataFile FileName="Admin4.xsd" MetadataType="Schema" ID="a9f11bb7-4b6e-472f-8531-b332574ce4e8" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd2" />
+    <MetadataFile FileName="Admin.wsdl" MetadataType="Wsdl" ID="00c5bb73-e208-4be6-a1a7-2c5ec5948ea5" SourceId="1" SourceUrl="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FotoStore.AdminService.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FotoStore.AdminService.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" />
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" />
+  <xs:complexType name="ArrayOfGreetingCardDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GreetingCardDto" nillable="true" type="tns:GreetingCardDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGreetingCardDto" nillable="true" type="tns:ArrayOfGreetingCardDto" />
+  <xs:complexType name="GreetingCardDto">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" minOccurs="0" name="Customer" nillable="true" type="q1:Customer" />
+      <xs:element minOccurs="0" name="GreetingCardId" type="xs:int" />
+      <xs:element minOccurs="0" name="Order" nillable="true" type="tns:OrderDto" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GreetingCardDto" nillable="true" type="tns:GreetingCardDto" />
+  <xs:complexType name="OrderDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CouponId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Discount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderPrice" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="OrderStatus" type="q2:OrderStatus" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="ProductCategory" type="q3:ProductCategory" />
+      <xs:element minOccurs="0" name="ShipToAddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToAddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCounty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToTownCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShippingCost" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SourceDevice" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderDto" nillable="true" type="tns:OrderDto" />
+  <xs:complexType name="CustomerSummaryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerSummaryDto" nillable="true" type="tns:CustomerSummaryDto" />
+</xs:schema>

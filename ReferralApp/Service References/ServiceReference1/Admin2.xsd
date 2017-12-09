@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" />
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/FotoStore.AdminService.Dto" />
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" />
+  <xs:element name="GetOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" minOccurs="0" name="GetOrderResult" nillable="true" type="q1:OrderPhotoPrint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" minOccurs="0" name="GetOrdersResult" nillable="true" type="q2:ArrayOfOrderPhotoPrint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGreetCardOrders">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGreetCardOrdersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/FotoStore.AdminService.Dto" minOccurs="0" name="GetGreetCardOrdersResult" nillable="true" type="q3:ArrayOfGreetingCardDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="status" type="q4:OrderStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersToDispatch">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersToDispatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" minOccurs="0" name="GetOrdersToDispatchResult" nillable="true" type="q5:ArrayOfOrderPhotoPrint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkOrderAsDispatched">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarkOrderAsDispatchedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="authToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FotoStore.AdminService.Dto" minOccurs="0" name="GetCustomerSummaryResult" nillable="true" type="q6:CustomerSummaryDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

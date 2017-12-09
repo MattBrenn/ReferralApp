@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://dev.fotostore.ie/FotoStore.AdminService/Admin.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" />
+  <xs:complexType name="OrderPhotoPrint">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Order">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OrderItems" nillable="true" type="tns:ArrayOfOrderPhotoPrintItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderPhotoPrint" nillable="true" type="tns:OrderPhotoPrint" />
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coupon" nillable="true" type="tns:Coupon" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="Discount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OrderDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="OrderStatus" type="q1:OrderStatus" />
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="ProductCategory" nillable="true" type="q2:ProductCategory" />
+      <xs:element minOccurs="0" name="ShipToAddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToAddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCountry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToCounty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToPostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShipToTownCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShippingCost" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SourceDevice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="Coupon">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CouponId" type="xs:int" />
+      <xs:element minOccurs="0" name="CouponUsages" nillable="true" type="tns:ArrayOfCouponUsage" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EffectiveDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FreeShipping" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:Product" />
+      <xs:element minOccurs="0" name="Value" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Coupon" nillable="true" type="tns:Coupon" />
+  <xs:complexType name="ArrayOfCouponUsage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CouponUsage" nillable="true" type="tns:CouponUsage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCouponUsage" nillable="true" type="tns:ArrayOfCouponUsage" />
+  <xs:complexType name="CouponUsage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coupon" nillable="true" type="tns:Coupon" />
+      <xs:element minOccurs="0" name="CouponUsageId" type="xs:int" />
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CouponUsage" nillable="true" type="tns:CouponUsage" />
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CouponUsages" nillable="true" type="tns:ArrayOfCouponUsage" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EmailAdddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="Status" type="q3:CustomerStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Live" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrintSizeCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/PhotoPrint.Common.Enums" minOccurs="0" name="ProductCategory" type="q4:ProductCategory" />
+      <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductPrices" nillable="true" type="tns:ArrayOfProductPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfProductPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductPrice" nillable="true" type="tns:ProductPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductPrice" nillable="true" type="tns:ArrayOfProductPrice" />
+  <xs:complexType name="ProductPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Price" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ProductPriceId" type="xs:int" />
+      <xs:element minOccurs="0" name="QuantityThreshold" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductPrice" nillable="true" type="tns:ProductPrice" />
+  <xs:complexType name="ArrayOfOrderPhotoPrintItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderPhotoPrintItem" nillable="true" type="tns:OrderPhotoPrintItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderPhotoPrintItem" nillable="true" type="tns:ArrayOfOrderPhotoPrintItem" />
+  <xs:complexType name="OrderPhotoPrintItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderPhotoPrintItemId" type="xs:int" />
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="tns:Photo" />
+      <xs:element minOccurs="0" name="PrintSizeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductPrice" nillable="true" type="tns:ProductPrice" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OrderPhotoPrintItem" nillable="true" type="tns:OrderPhotoPrintItem" />
+  <xs:complexType name="Photo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" nillable="true" type="tns:Customer" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhotoId" type="xs:int" />
+      <xs:element minOccurs="0" name="PhotoSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThumbUrl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Photo" nillable="true" type="tns:Photo" />
+  <xs:complexType name="ArrayOfOrderPhotoPrint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderPhotoPrint" nillable="true" type="tns:OrderPhotoPrint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderPhotoPrint" nillable="true" type="tns:ArrayOfOrderPhotoPrint" />
+</xs:schema>
