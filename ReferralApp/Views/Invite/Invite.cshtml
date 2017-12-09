@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Refer a friend";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+<div class="dimensiontest">
+    <div class="headbanner">
+        <img class="Clogo" src="~/Content/Images/FSlogo.png" />
+    </div>
+    <div class="triangle"></div>
+    
+    <h3 class="Inhead1">Refer a friend</h3>
+    <h4 class="Inhead2">@ViewBag.CustomerWelcome!</h4> 
+                
+    <h4 class="Inline2">Refer your friends to Foto Store and for each friend who registers you will <b>BOTH</b> get <b>€5.00</b> credit added to your account!</h4>
+
+    <div class="Inbottomcont">
+        <div class="triangle2"></div>
+
+        <h4 class="shareline">TAP A BUTTON BELOW TO START SHARING</h4>
+        
+        
+        <div class="rectanglecont">
+            <div class="whatsapp"> 
+                <a href="whatsapp://send?text=@Uri.EscapeDataString(ViewBag.WhatsappMessage)&phone="></a>      
+                <img class="whatsapplogo" src="~/Content/Images/newwehatsapp.png"/>
+            </div>
+        
+            <div class="textmessage">   
+                <a href="sms:/&body=@Uri.EscapeDataString(ViewBag.SMSTextMessage)"></a>     
+                <img class="textlogo" src="~/Content/Images/Textlogo.png" />
+            </div>
+        
+            <div class="email"> 
+                <a href="mailto:?subject=Photo Printing form your Smartphone with Foto Store&body=@Uri.EscapeDataString(ViewBag.EmailMessage)"></a>
+                <img class="maillogo" src="~/Content/Images/Maillogo.png"/>
+            </div>   
+        </div>
+        
+        <div class="rectanglecont2">
+            <div class="whatsapptag">
+                <p class="buttontag">Whatsapp</p>
+            </div>
+            <div class="emailtag">
+                <p class="buttontag">Email</p>
+            </div>
+            <div class="textmessagetag">
+                <p class="buttontag">Text</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>

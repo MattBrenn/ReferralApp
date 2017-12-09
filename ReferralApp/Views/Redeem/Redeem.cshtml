@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Redeem coupon";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    <div class="dimensiontest">
+        <div class="redheadbanner">
+            <img class="redClogo" src="~/Content/Images/FSlogo.png" />
+        </div>
+        <div class="triangle"></div>
+        
+        <h3 class="rpageline1">Redeem Credit</h3>
+
+        <h4 class="rpageline1a">@ViewBag.RedeemWelcome</h4>
+        <h4 class="rpageline1a">@ViewBag.RedeemCouponValue</h4>
+        
+        <h4 class="line2">Thanks again and happy printing!</h4>
+        
+        <div class="redeembottomcont">
+            <div class="triangle2"></div>
+          
+            <div class="logincontainer"> 
+                
+                <h4 class="redline2"><strong>Redeem your code now to use next time you log in with Foto Store.</strong></h4>
+                      
+                @using (Html.BeginForm("RedeemExecute","Redeem", new {customerId = Request.QueryString["customerId"]}))
+                {
+                    <div class="form-horizontal">     
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="submit" value="REDEEM NOW" class="btn btn-default"/>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            
+        </div>
+
+    </div>
+</body>

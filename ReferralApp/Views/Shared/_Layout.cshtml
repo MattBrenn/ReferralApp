@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/fontawesome")
+    @Scripts.Render("~/bundles/jquery")
+    @Mvc.RazorTools.BundleManager.Styles.Render()
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    
+    @*<img class="backimg" src="~/Content/Images/FINALCOVERSHOT.jpg" />*@
+
+
+@RenderBody()
+    
+
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+    
+</body>
+
+</html>

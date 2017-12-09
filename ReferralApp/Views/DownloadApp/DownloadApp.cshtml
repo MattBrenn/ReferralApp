@@ -1,0 +1,49 @@
+﻿@using WebGrease.Css.Ast.MediaQuery
+
+@{
+    ViewBag.Title = "Download app";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+
+<div class="dimensiontest">
+    <div class="headbanner">
+        <img class="Clogo" src="~/Content/Images/FSlogo.png"/>
+    </div>
+    <div class="triangle"></div>
+
+    <h3 class="headc1">Congratulations!</h3>
+    <img class="star" src="~/Content/Images/laststar.png"/>
+
+    <h4 class="line3d">You're now well on the way to getting all those lovely pictures printed off your phone, and <b>€5.00</b> free credit!</h4>
+    <h4 class="dline2">Click to download the app and start printing.</h4>
+
+
+    <a id="ituneslink" style="display: none" href="https://itunes.apple.com/ie/app/foto-store/id820555151"> <img class="linklogo1" src="~/Content/Images/apple_1wlogo.png"/> </a>
+    <a id="androidlink" style="display: none" href="https://play.google.com/store/apps/details?id=ie.fotostore.androidapp"> <img class="linklogo2" src="~/Content/Images/android.png"/> </a>
+    <img class="standalonetextimg" src="~/Content/Images/ITSFREE STANDALONETEXT.png" />
+
+</div>
+<script>
+    $(document).ready(function() {
+        console.log("ready!");
+
+        function detectUagent(name) {
+            return (navigator.userAgent.toLowerCase().search(name) > -1);
+        }
+        if (detectUagent("android")) {
+            $('#androidlink').show();
+        }
+        else if (detectUagent("iphone") || detectUagent("ipad") || detectUagent("ipod")) {
+            $('#ituneslink').show();
+        }
+        else {
+            $('#androidlink').show();
+            $('#ituneslink').show();
+        }
+    });
+</script>
+</body>
+

@@ -1,0 +1,160 @@
+﻿@model ReferralApp.Models.Client
+
+@{
+    ViewBag.Title = "Foto Store login";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    <div class="dimensiontest">
+        <div class="lpageheadbanner">
+            <img class="lpageClogo" src="~/Content/Images/FSlogo.png" />
+        </div>
+        <div class="triangle"></div>
+        
+        <h3 class="line1a">Login</h3>
+        <h4 class="lpagehead2">@ViewBag.LoginHello</h4>
+        <h4 class="lpagehead3">@ViewBag.LoginRedeemWelcome</h4>        
+     
+        <div class="loginbottomcont">
+            <div class="triangle2"></div>
+            
+            <div class="loginlogincontainer2">
+                
+                @if (ViewBag.exceptionthrownbool != null && ViewBag.exceptionthrownbool)
+                {
+                    <h3 id="ValidationSummaryMessage">@ViewBag.ValidationSummaryMessage</h3>
+                }
+          
+                
+                @using (Html.BeginForm("Login", "Login", new {loginType = Request.QueryString["loginType"]}))
+                {
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true" style="color: rgb(255, 255, 255)"></i></span>
+                                    @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@class = "form-control", placeholder = "Email"}})
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true" style="color: rgb(255, 255, 255)"></i></span>
+                                    @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-control", placeholder = "Password"}})
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="submit" value="LOGIN" class="btn btn-default"/>
+                            </div>
+                        </div>
+                    </div>
+                }   
+                <h5 class="lpagehead4"> <a href="http://dev.fotostore.ie/Referral/forgotpassword">Forgot your password?</a></h5>           
+            </div>
+          
+        </div>
+        
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            console.log("ready!");
+
+
+            $(".btn").click(function(e) {
+
+                if (!$("form").valid()) {
+                    $("input").each(function() {
+                        var $this = $(this);
+                        resetFieldValidation($this);
+                        if ($this.hasClass("input-validation-error")) {
+                            $this.prev(".input-group-addon").css("background-color", "red");
+                            $this.parent().next(".text-danger").addClass("custom-val-message");
+                        }
+                    });
+                }
+            });
+
+            $("#Email").on('input',
+                function(e) {
+                    if (!$("#Email").valid()) {
+                        $("input").each(function() {
+                            var $this = $(this);
+                            resetFieldValidation($this);
+                            if ($this.hasClass("input-validation-error")) {
+                                $this.prev(".input-group-addon").css("background-color", "red");
+                                $this.parent().next(".text-danger").addClass("custom-val-message");
+                            }
+                        });
+                    }
+                });
+
+            $("#Password").on('input',
+                function(e) {
+                    if (!$("#Password").valid()) {
+                        $("input").each(function() {
+                            var $this = $(this);
+                            resetFieldValidation($this);
+                            if ($this.hasClass("input-validation-error")) {
+                                $this.prev(".input-group-addon").css("background-color", "red");
+                                $this.parent().next(".text-danger").addClass("custom-val-message");
+                            }
+                        });
+                    }
+                });
+
+            function reset() {
+                $("input").each(function() {
+                    $(".text-danger").removeClass("custom-val-message");
+                    $('.input-group-addon').css("background-color", "rgb(230, 0, 126)");
+                });
+            }
+
+            $("input").on('input',
+                function(e) {
+                    resetFieldValidation($(this));
+                });
+
+            $("#Email").on('input',
+                function(e) {
+                    var $this = $(this);
+
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+
+            $("#Password").on('input',
+                function(e) {
+                    var $this = $(this);
+
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+
+            function resetFieldValidation($input) {
+                $input.prev(".input-group-addon").css("background-color", "rgb(230, 0, 126)");
+                $input.parent().next(".custom-val-message").removeClass("custom-val-message");
+            }
+    });
+
+
+        </script>  
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+  
+</body>

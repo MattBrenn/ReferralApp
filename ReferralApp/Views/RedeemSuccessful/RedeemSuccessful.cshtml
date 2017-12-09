@@ -1,0 +1,41 @@
+﻿@model ReferralApp.Models.RedeemSucces
+
+@{
+    ViewBag.Title = "Coupon code";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+    <div class="dimensiontest">
+        <div class="headbanner">
+            <img class="Clogo" src="~/Content/Images/FSlogo.png" />
+        </div>
+        <div class="triangle"></div>
+        
+        <h3 class="rspageline1">Coupon Code</h3>
+             
+        <div class ="dotteddiv">
+            <h4 class="line1a"><strong>Your coupon code worth €@Model.Value is:</strong></h4>
+            <h3 class="line1a"><strong>@Model.Code</strong></h3>
+        </div>
+        
+        <h4 class="line2">We have also emailed you this code for future use.</h4>
+        
+        <div class="redeemsucbottomcont">
+            <div class="triangle2"></div>
+                
+            <div class="reddemsuclogincontainer2">
+           
+                    <div class="form-group">
+                        <div class="col-md-101">
+                            <input type="button" onclick="location.href = 'http://fotostore.ie/'" value="OPEN APP" class="btn btn-default"/>
+                        </div>
+                    </div>
+
+            </div>      
+            
+        </div>
+
+    </div>
+</body>

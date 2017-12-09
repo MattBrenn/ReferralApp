@@ -1,0 +1,229 @@
+﻿@model ReferralApp.Models.Client
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+<div class="dimensiontest">
+    <div class="regheadbanner">
+        <img class="regClogo" src="~/Content/Images/FSlogo.png" />
+    </div>
+    <div class="triangle"></div>
+    
+@if (ViewBag.exceptionthrownbool == null)
+{
+    <h4 class="regline1a"><strong>@ViewBag.CustomerName</strong></h4>
+    <p class="regline1b">The smart way to print your photos, fast!</p>
+    <h4 class="regline2">Sign up and we will give you €5.00 off your first order.</h4>
+}
+
+    
+    @if (ViewBag.exceptionthrownbool != null && ViewBag.exceptionthrownbool)
+    {
+        <h3 id="ValidationSummaryMessage2">@ViewBag.ValidationSummaryMessage</h3>
+    }
+
+    @using (Html.BeginForm("RegisterExecute", "Register", new { referralCode = Request.QueryString["referralCode"] }))
+    {
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true" style="color: rgb(255, 255, 255)"></i></span>
+                        @Html.EditorFor(model => model.Fname, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })            
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Fname, "", new { @class = "text-danger" })  
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
+                        @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @class = "form-control", placeholder = "Surname" } })         
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Lname, "", new { @class = "text-danger" })  
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })                  
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })   
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true" style="color:rgb(255, 255, 255)"></i></span>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })                     
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="REGISTER" class="btn btn-default" />
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+</div>
+<script>
+    $(document).ready(function() {
+        console.log("ready!");
+
+        $(".btn").click(function (e) {
+
+            if (!$("form").valid()) {
+                $("input").each(function () {
+                    var $this = $(this);
+                    resetFieldValidation($this);
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+            }
+        });
+
+        //$("input").on('input', function (e) {
+        //    if (!$("form").valid()) {
+        //        $("input").each(function () {
+        //            var $this = $(this);
+        //            resetFieldValidation($this);
+        //            if ($this.hasClass("input-validation-error")) {
+        //                $this.prev(".input-group-addon").css("background-color", "red");
+        //                $this.parent().next(".text-danger").addClass("custom-val-message");
+        //            }
+        //        });
+        //    }
+        //});
+
+        $("#Fname").on('input', function (e) {
+            if (!$("#Fname").valid()) {
+                $("input").each(function () {
+                    var $this = $(this);
+                    resetFieldValidation($this);
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+            }
+        });
+
+        $("#Lname").on('input', function (e) {
+            if (!$("#Lname").valid()) {
+                $("input").each(function () {
+                    var $this = $(this);
+                    resetFieldValidation($this);
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+            }
+        });
+
+        $("#Email").on('input', function (e) {
+            if (!$("#Email").valid()) {
+                $("input").each(function () {
+                    var $this = $(this);
+                    resetFieldValidation($this);
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+            }
+        });
+
+        $("#Password").on('input', function (e) {
+            if (!$("#Password").valid()) {
+                $("input").each(function () {
+                    var $this = $(this);
+                    resetFieldValidation($this);
+                    if ($this.hasClass("input-validation-error")) {
+                        $this.prev(".input-group-addon").css("background-color", "red");
+                        $this.parent().next(".text-danger").addClass("custom-val-message");
+                    }
+                });
+            }
+        });
+
+        function reset() {
+            $("input").each(function () {
+                $(".text-danger").removeClass("custom-val-message");
+                $('.input-group-addon').css("background-color", "rgb(230, 0, 126)");
+            });
+        }
+
+        $("input").on('input',function(e) {
+            resetFieldValidation($(this));
+        });
+
+        $("#Fname").on('input', function (e) {
+            var $this = $(this);
+
+            if ($this.hasClass("input-validation-error")) {
+                $this.prev(".input-group-addon").css("background-color", "red");
+                $this.parent().next(".text-danger").addClass("custom-val-message");
+            }           
+        });
+
+        $("#Lname").on('input', function (e) {
+            var $this = $(this);
+
+            if ($this.hasClass("input-validation-error")) {
+                $this.prev(".input-group-addon").css("background-color", "red");
+                $this.parent().next(".text-danger").addClass("custom-val-message");
+            }
+        });
+
+        $("#Email").on('input', function (e) {
+            var $this = $(this);
+
+            if ($this.hasClass("input-validation-error")) { 
+                $this.prev(".input-group-addon").css("background-color", "red");
+                $this.parent().next(".text-danger").addClass("custom-val-message");
+            }
+        });
+
+        $("#Password").on('input', function (e) {
+            var $this = $(this);
+
+            if ($this.hasClass("input-validation-error")) {
+                $this.prev(".input-group-addon").css("background-color", "red");
+                $this.parent().next(".text-danger").addClass("custom-val-message");
+            }
+        });
+
+        function resetFieldValidation($input) {      
+            $input.prev(".input-group-addon").css("background-color", "rgb(230, 0, 126)");
+            $input.parent().next(".custom-val-message").removeClass("custom-val-message");
+        }
+    });
+ 
+
+
+
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+</body>
